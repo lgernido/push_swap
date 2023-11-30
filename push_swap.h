@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/11/30 14:36:33 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:56:02 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typdef struct s_list
 	int pos;
 	struct s_list *previous;
 	struct s_list *next;
-}			t_list;
+}		t_list;
 
 t_list	ft_new_stack(int content, int pos);
 void	ft_add_stack(int content, int pos, t_list **a, t_list *previous);

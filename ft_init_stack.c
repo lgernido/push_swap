@@ -6,13 +6,13 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:19:25 by lgernido          #+#    #+#             */
-/*   Updated: 2023/11/30 14:19:04 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:00:09 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	ft_new_stack(int content, int pos)
+t_list	ft_new_stack(int content, int pos, t_list *previous)
 {
 	t_list	*a;
 
@@ -21,38 +21,29 @@ t_list	ft_new_stack(int content, int pos)
 		return (NULL);
 	a->content = content;
 	a->pos = pos;
-	a->previous = NULL;
-	a->next = NULL;
-	return (a);
+	if (pos == 1)
+		a->previous = NULL;
+	else
+	{
+		a->previous = previous;
+		a->next = NULL;
+	}
+	b = NULL return (a);
 }
 
-void	ft_add_stack(int content, int pos, t_list **a, t_list *previous)
+void	ft_add_stack(t_list **a, t_list *new)
 {
-	t_list	*next_a;
+	t_list	**last;
 
-	if (!a)
+	if (!*a)
 	{
-		*a = next_a;
+		*a = new;
 		return ;
 	}
-	next_a = malloc(sizeof(t_list));
-	if (!next_a)
-		return ;
-	next_a->content = content;
-	next_a->pos = pos;
-	next_a->previous = previous;
-	next_a->next = NULL;
-	return (next_a);
+	last = ft_lstlast(*a);
+	last->next = new;
 }
 
-void	ft_init_stack(int content, int pos)
+void	ft_init_stack(void)
 {
-	t_list *a;
-	t_list *b;
-
-	if (pos == 1)
-		a = ft_new_stack(content, pos);
-	else
-		a = ft_add_stack(content, pos, a, a[pos - 1]);
-	b = NULL;
 }

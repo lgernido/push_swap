@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/01 08:22:03 by lgernido         ###   ########.fr       */
+/*   Created: 2023/12/01 08:39:15 by lgernido          #+#    #+#             */
+/*   Updated: 2023/12/01 09:18:51 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_error_double(t_list *a, int nb)
 {
-	t_list	*a;
-	t_list	*b;
+	if (!a)
+		return (0);
+	while (a)
+	{
+		if (a->content == nb)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+int	ft_error_syntax(char **argv)
+{
+	if (!(*argv == '+' || (*argv >= '0' && *argv <= 9) || *argv == '-'))
+		return (1);
+	return (0);
+}
 
-	a = NULL;
-	b = NULL;
-	/*1. Verifier que les arguments sont valides*/
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		write(2, "Error\n", 6);
-	/*2. Initialiser la stack a avec les arguments*/
-	ft_init_stack(&a, argv + 1)
-	/*3. Trier */
-	/*4. Renvoyer les commandes */
+void	ft_clear_stack(t_list **a, char **argv)
+{
+	ft_lstclear(a);
+	write(2, "Error\n", 6);
+	exit(1);
 }

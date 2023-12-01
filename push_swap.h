@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/01 13:37:53 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:53:38 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void				ft_init_stack(t_stack **a, char **argv);
 /*Check et gestion des erreurs*/
 
 int					ft_error_double(t_stack *a, int nb);
-int					ft_error_syntax(char **argv);
+int					ft_error_syntax(char *argv);
 void				ft_error_found(t_stack **a, char **argv);
 
 /*Utilitaires*/
@@ -45,6 +45,5 @@ void				ft_error_found(t_stack **a, char **argv);
 long				ft_atol(char *nptr);
 void				ft_stack_clear(t_stack **a);
 t_stack				*ft_find_last(t_stack *a);
-int					ft_isdigit(int c);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:39:15 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/01 13:39:07 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:52:56 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	ft_error_double(t_stack *a, int nb)
 	}
 	return (0);
 }
-int	ft_error_syntax(char **argv)
+int	ft_error_syntax(char *argv)
 {
-	if (*argv != '+' || *argv != '-' || (!ft_isdigit(argv)))
+	if (!(*argv != '+' || *argv != '-' || *argv >= '0' && *argv <= '9'))
 		return (1);
 	return (0);
 }

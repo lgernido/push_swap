@@ -1,9 +1,9 @@
 ###########################################################################
 #### ARGUMENTS
 
-NAME		= 
+NAME		= push_swap
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -g
 INCLUDE		= push_swap.h
 AR 			= ar -rc 
 

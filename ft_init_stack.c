@@ -3,25 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:19:25 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/01 13:52:56 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:36:39 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_add_stack(t_stack **a, int nb)
+void	ft_add_stack(t_stack **a, int content)
 {
 	t_stack	*new;
 	t_stack	*last;
-
+	
+	if(!a)
+		return ;
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		return ;
 	new->next = NULL;
-	new->content = nb;
+	new->content = content;
 	if (!*a)
 	{
 		*a = new;

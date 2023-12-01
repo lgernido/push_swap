@@ -3,53 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:27:27 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/01 13:37:43 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:38:28 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static long	write_nb(const char *nptr, int *i)
-{
-	int	nb;
-
-	nb = 0;
-	while (nptr[*i] >= '0' && nptr[*i] <= '9')
-	{
-		nb = nb * 10 + (nptr[*i] - '0');
-		(*i)++;
-	}
-	return (nb);
-}
-
 long	ft_atol(char *nptr)
 {
+	long	num;
+	int		isneg;
 	int		i;
-	int		neg;
-	int		sign;
-	long	nb;
 
+	num = 0;
+	isneg = 1;
 	i = 0;
-	sign = 0;
-	neg = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+	while (nptr[i] && (nptr[i] == ' ' || nptr[i] == '\t'
+			|| nptr[i] == '\n' || nptr[i] == '\r'
+			|| nptr[i] == '\v' || nptr[i] == '\f'))
 		i++;
-	while (nptr[i] == '+' || nptr[i] == '-')
+	if (nptr[i] == '+')
+		i++;
+	else if (nptr[i] == '-')
 	{
-		if (nptr[i] == '-')
-			neg++;
-		sign++;
+		isneg *= -1;
 		i++;
 	}
-	nb = write_nb(nptr, &i);
-	if (neg == 1)
-		nb = -nb;
-	if (sign > 1)
-		return (0);
-	return (nb);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		num = (num * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return (num * isneg);
 }
 void	ft_stack_clear(t_stack **a)
 {
@@ -62,8 +50,6 @@ void	ft_stack_clear(t_stack **a)
 	while (curr)
 	{
 		next = curr->next;
-		free(curr->content);
-		free(curr->pos);
 		free(curr);
 		curr = next;
 	}
@@ -76,7 +62,7 @@ t_stack	*ft_find_last(t_stack *a)
 		return (NULL);
 	while (a->next)
 		a = a->next;
-	return (&a);
+	return (a);
 }
 int	ft_isdigit(int c)
 {

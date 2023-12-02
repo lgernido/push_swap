@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:19:25 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/01 16:36:39 by luciegernid      ###   ########.fr       */
+/*   Updated: 2023/12/02 10:16:15 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_add_stack(t_stack **a, int content)
 {
 	t_stack	*new;
 	t_stack	*last;
-	
-	if(!a)
+
+	if (!a)
 		return ;
 	new = malloc(sizeof(t_stack));
 	if (!new)
@@ -41,41 +41,22 @@ void	ft_add_stack(t_stack **a, int content)
 
 void	ft_init_stack(t_stack **a, char **argv)
 {
-	int		i;
-	long	nb;
+	int i;
+	long nb;
 
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
 		/**Verifier qu'il n'y a pas d'erreur*/
 		if (ft_error_syntax(argv[i]))
-			ft_error_found(a, argv);
+			ft_error_found(a);
 		nb = ft_atol(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
-			ft_error_found(a, argv);
+			ft_error_found(a);
 		if (ft_error_double(*a, (int)nb))
-			ft_error_found(a, argv);
+			ft_error_found(a);
 		/*Initialisation de la stack a*/
 		ft_add_stack(a, (int)nb);
 		i++;
 	}
 }
-/*t_list	ft_new_stack(int content, int pos, t_list *previous)
-{
-	t_list	*a;
-
-	a = malloc(sizeof(t_list));
-	if (!a)
-		return (NULL);
-	a->content = content;
-	a->pos = pos;
-	if (pos == 1)
-		a->previous = NULL;
-	else
-	{
-		a->previous = previous;
-		a->next = NULL;
-	}
-	b = NULL;
-	return (a);
-}*/

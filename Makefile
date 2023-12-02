@@ -10,9 +10,9 @@ AR 			= ar -rc
 ###########################################################################
 #### SOURCES
 
-SRC_FILES = push_swap.c ft_init_stack.c
+SRC_FILES = push_swap.c ft_init_stack.c utils.c error_check.c
 
-OBJ_FILES = OBJ_FILES	= $(SRC_FILES:.c=.o)
+OBJ_FILES = $(SRC_FILES:.c=.o)
 ###########################################################################
 #### RULES
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:27:27 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/01 16:54:42 by luciegernid      ###   ########.fr       */
+/*   Updated: 2023/12/02 08:35:13 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ long	ft_atol(char *nptr)
 	nb = 0;
 	sign = 1;
 	i = 0;
-	while (nptr[i] && (nptr[i] == ' ' || nptr[i] == '\t'
-			|| nptr[i] == '\n' || nptr[i] == '\r'
-			|| nptr[i] == '\v' || nptr[i] == '\f'))
+	while (nptr[i] && (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
+			|| nptr[i] == '\r' || nptr[i] == '\v' || nptr[i] == '\f'))
 		i++;
 	if (nptr[i] == '+')
 		i++;
@@ -63,4 +62,39 @@ t_stack	*ft_find_last(t_stack *a)
 	while (a->next)
 		a = a->next;
 	return (a);
+}
+
+t_stack	*ft_small_node(t_stack *a)
+{
+	int		smallest_content;
+	t_stack	*smallest_node;
+
+	if (!a)
+		return (NULL);
+	smallest_content = INT_MAX;
+	while (a)
+	{
+		if (a->content < smallest_content)
+		{
+			smallest_content = a->content;
+			smallest_node = a;
+		}
+		a = a->next;
+	}
+	printf("%d\n", smallest_node->content);
+	return (smallest_node);
+}
+int	ft_stack_size(t_stack *a)
+{
+	int size;
+
+	size = 0;
+	if (!a)
+		return (0);
+	while (a)
+	{
+		size++;
+		a = a->next;
+	}
+	return (size);
 }

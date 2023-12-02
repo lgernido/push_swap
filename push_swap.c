@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/01 17:03:33 by luciegernid      ###   ########.fr       */
+/*   Updated: 2023/12/02 08:42:45 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,23 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	*a;
-	t_list	*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
 	/*1. Verifier que les arguments sont valides*/
 	if (argc == 1)
-		ft_error_found(a, argv);
+		ft_error_found(&a);
 	/*2. Initialiser la stack a avec les arguments*/
-	ft_init_stack(&a, *argv + 1);
-	printf("%d->", a->content);
+	ft_init_stack(&a, argv + 1);
+	ft_swap(a);
+	while (a)
+	{
+		printf("%d. %d\n", a->pos, a->content);
+		a = a->next;
+	}
+	// ft_small_node(a);
 	return (0);
 	/*3. Trier */
 	/*4. Renvoyer les commandes */

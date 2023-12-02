@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:39:15 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/01 16:52:56 by luciegernid      ###   ########.fr       */
+/*   Updated: 2023/12/02 07:28:47 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	ft_error_double(t_stack *a, int nb)
 }
 int	ft_error_syntax(char *argv)
 {
-	if (!(*argv != '+' || *argv != '-' || *argv >= '0' && *argv <= '9'))
+	if (!(*argv == '+' || *argv == '-' || (*argv >= '0' && *argv <= '9')))
 		return (1);
 	return (0);
 }
 
-void	ft_error_found(t_stack **a, char **argv)
+void	ft_error_found(t_stack **a)
 {
 	ft_stack_clear(a);
 	write(2, "Error\n", 6);

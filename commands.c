@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 08:03:19 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/02 09:46:34 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:43:23 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_swap(t_stack *stack)
 	int	tmp;
 
 	size = ft_stack_size(stack);
-	if (size == 1 || !stack)
+	if (size == 1 || size == 0 || !stack)
 		return ;
 	tmp = stack->content;
 	stack->content = stack->next->content;
@@ -32,7 +32,7 @@ void	ft_swap(t_stack *stack)
 
 void	ft_push(t_stack *from, t_stack *to)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!from)
 		return ;
@@ -40,4 +40,43 @@ void	ft_push(t_stack *from, t_stack *to)
 	(*from)->next = *to;
 	*to = *from;
 	*from = tmp;
+}
+
+void	ft_rotate(t_stack *stack)
+{
+	t_stack	*tmp;
+	t_stack	*last;
+
+	last = ft_find_last(*stack);
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = NULL;
+	last->next = tmp;
+}
+
+void	ft_reverse_rotate(t_stack *stack)
+{
+	t_stack	*tmp;
+	t_stack	*last;
+
+	last = ft_find_last(*stack);
+}
+void	ft_execute_command(char *command)
+{
+	if (command == "sa")
+	{
+		ft_swap(a);
+		write(1, "sa\n", 3);
+	}
+	else if (command == "sb")
+	{
+		ft_swap(b);
+		write(1, "sb\n", 3);
+	}
+	else if (command == "ss")
+	{
+		ft_swap(a);
+		ft_swap(b);
+		write(1, "ss\n", 3);
+	}
 }

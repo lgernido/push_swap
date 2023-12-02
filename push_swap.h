@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/02 10:16:22 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:01:44 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void				ft_error_found(t_stack **a);
 
 void				ft_swap(t_stack *stack);
 void				ft_push(t_stack *from, t_stack *to);
+void				ft_rotate(t_stack *stack);
+void				ft_reverse_rotate(t_stack *stack);
 
 /*Utilitaires*/
 

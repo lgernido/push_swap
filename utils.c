@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:27:27 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/03 07:59:33 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:17:13 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_stack	*ft_find_last(t_stack *a)
 	return (a);
 }
 
-t_stack	*ft_small_node(t_stack *a)
+t_stack	*ft_find_small(t_stack *a)
 {
 	int		smallest_content;
 	t_stack	*smallest_node;
@@ -89,6 +89,9 @@ int	ft_stack_size(t_stack *a)
 	int size;
 
 	size = 0;
+	int i;
+
+	i = 0;
 	if (!a)
 		return (0);
 	while (a)

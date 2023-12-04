@@ -10,7 +10,7 @@ AR 			= ar -rc
 ###########################################################################
 #### SOURCES
 
-SRC_FILES = push_swap.c ft_init_stack.c utils.c error_check.c
+SRC_FILES = push_swap.c ft_init_stack.c utils.c error_check.c commands.c
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 ###########################################################################

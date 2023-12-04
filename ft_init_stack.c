@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:19:25 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/02 10:16:15 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/04 09:56:00 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ void	ft_add_stack(t_stack **a, int content)
 	if (!*a)
 	{
 		*a = new;
-		new->pos = 1;
 		new->previous = NULL;
 	}
 	else
 	{
 		last = ft_find_last(*a);
 		last->next = new;
-		new->pos = last->pos + 1;
 		new->previous = last;
 	}
 }

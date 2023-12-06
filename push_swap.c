@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/04 12:01:35 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/06 11:19:03 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int argc, char **argv)
 		printf("%d\n", a->content);
 		a = a->next;
 	}
-	// ft_small_node(a);
 	return (0);
 	/*3. Trier */
 	/*4. Renvoyer les commandes */

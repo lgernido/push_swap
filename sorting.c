@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:53:55 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/07 10:19:39 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:05:18 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,10 @@ void	ft_init_div(t_stack *a, t_stack *b)
 		if (a->content <= pivot)
 			ft_make_pb(&a, &b);
 		else if (a->content > pivot)
-		{
 			ft_make_ra(&a);
-			a = a->next;
-		}
 	}
 }
+
 /*Sur la stack b,
 	trier dans l'ordre decroissant pour pouvoir push sur a par la suite*/
 

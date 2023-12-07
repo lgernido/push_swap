@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:12:17 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/07 13:07:47 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/07 13:19:42 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	ft_push(t_stack **from, t_stack **to)
 {
 	t_stack	*tmp;
 
-	tmp = *from;
 	if (!from || !(*from))
 		return ;
+	tmp = *from;
 	*from = (*from)->next;
-	if (*from)
+	if (tmp)
 	{
-		(*from)->previous = NULL;
+		tmp->previous = NULL;
 		if (!to || !(*to))
 		{
 			*to = tmp;
@@ -31,7 +31,8 @@ void	ft_push(t_stack **from, t_stack **to)
 		else
 		{
 			tmp->next = *to;
-			tmp->next->previous = tmp;
+			if (*to)
+				(*to)->previous = tmp;
 			*to = tmp;
 		}
 	}

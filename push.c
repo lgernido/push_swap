@@ -6,11 +6,13 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:12:17 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/07 13:19:42 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:14:41 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*Pousser le premier element d'une stack au sommet*/
 
 void	ft_push(t_stack **from, t_stack **to)
 {

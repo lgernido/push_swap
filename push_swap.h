@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/06 16:50:21 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/08 09:03:02 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int					ft_stack_size(t_stack *a);
 
 int					ft_a_sorted(t_stack *a);
 int					ft_b_sorted(t_stack *a);
-void				ft_init_div(t_stack *a, t_stack *b);
-void				ft_descending_sort(t_stack *a);
-void				ft_ascending_sort(t_stack *a);
-void				ft_merge(t_stack *a, t_stack *b);
+void				ft_init_div(t_stack **a, t_stack **b);
+void				ft_descending_sort(t_stack **b);
+void				ft_ascending_sort(t_stack **a);
+void				ft_merge(t_stack **a, t_stack **b);
 
 #endif

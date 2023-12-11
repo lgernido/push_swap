@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 10:53:55 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/08 18:58:55 by lgernido         ###   ########.fr       */
+/*   Created: 2023/12/11 08:20:42 by lgernido          #+#    #+#             */
+/*   Updated: 2023/12/11 11:48:42 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,59 +37,57 @@ int	ft_b_sorted(t_stack *b)
 	}
 	return (1);
 }
-/*Diviser la stack a en mettant toutes les valeurs plus petites que pivot dans b*/
-void	ft_init_div(t_stack **a, t_stack **b)
-{
-	int	pivot;
 
-	if (*a == NULL || (*a)->next == NULL)
-		return ;
-	pivot = (*a)->content;
-	while ((*a)->next != NULL)
+void	ft_sort_two_three(t_stack **a)
+{
+	if (ft_stack_size(*a) == 2)
+		ft_make_sa(*a);
+	else
 	{
-		if ((*a)->content <= pivot)
-			ft_make_pb(a, b);
+		if (ft_find_last(*a) == ft_find_small(*a) && (*a) == ft_find_big(*a))
+		{
+			ft_make_sa(*a);
+			ft_make_rra(a);
+		}
+		else if ((*a)->content == ft_find_small(*a)->content
+			&& (*a)->next->content == ft_find_big(*a)->content)
+		{
+			ft_make_sa(*a);
+			ft_make_ra(a);
+		}
+		else if ((*a)->content == ft_find_big(*a)->content
+			&& (*a)->next->content == ft_find_small(*a)->content)
+			ft_make_ra(a);
+		else if ((*a)->next->content == ft_find_small(*a)->content)
+			ft_make_sa(*a);
+		else if (ft_find_last(*a) == ft_find_small(*a))
+			ft_make_rra(a);
+	}
+}
+void	ft_push_swap(t_stack **a, t_stack **b)
+{
+	if (!ft_a_sorted(*a))
+	{
+		if (ft_stack_size(*a) == 2 || ft_stack_size(*a) == 3)
+			ft_sort_two_three(a);
 		else
 		{
-			ft_make_ra(a);
-			*a = (*a)->next;
+			while (ft_stack_size(*b) < 2)
+				ft_make_pb(a, b);
+			while (ft_stack_size(*a) > 3)
+			{
+				if ((*b)->content < (*a)->content)
+					ft_make_pb(a, b);
+				else
+					ft_make_rb(b);
+			}
+			ft_descending_sort(b);
+			while (ft_stack_size(*b) != 0)
+			{
+				if ((*b)->content > (*a)->content)
+					ft_make_ra(a);
+				ft_make_pa(a, b);
+			}
 		}
-	}
-}
-
-/*Sur la stack b,
-	trier dans l'ordre decroissant pour pouvoir push sur a par la suite*/
-
-void	ft_descending_sort(t_stack **b)
-{
-	t_stack	*last;
-
-	while (!ft_b_sorted(*b))
-	{
-		last = ft_find_last(*b);
-		if ((*b)->content < (*b)->next->content)
-			ft_make_sb(*b);
-		else if (last->content > (*b)->content)
-			ft_make_rrb(b);
-		else
-			ft_make_rb(b);
-	}
-}
-
-/*Sur la stack a, directement trier dans l'ordre croissant*/
-
-void	ft_ascending_sort(t_stack **a)
-{
-	t_stack	*last;
-
-	while (!ft_a_sorted(*a))
-	{
-		last = ft_find_last(*a);
-		if ((*a)->content > (*a)->next->content)
-			ft_make_sa(*a);
-		else if (last->content < (*a)->content)
-			ft_make_ra(a);
-		else
-			ft_make_rra(a);
 	}
 }

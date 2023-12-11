@@ -6,11 +6,13 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 08:03:19 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/04 11:23:20 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/09 08:31:05 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*EFfectue une rotation sur la stack, le dernier element devient premier*/
 
 void	ft_reverse_rotate(t_stack **stack)
 {

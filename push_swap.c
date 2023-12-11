@@ -6,24 +6,12 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/08 11:31:35 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:21:40 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
-void	ft_merge(t_stack **a, t_stack **b)
-{
-	ft_init_div(a, b);
-	ft_descending_sort(b);
-	ft_ascending_sort(a);
-	if ((ft_a_sorted(*a) == 1 && ft_b_sorted(*b) == 1))
-	{
-		while (*b)
-			ft_make_pa(b, a);
-	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -38,9 +26,10 @@ int	main(int argc, char **argv)
 	/*2. Initialiser la stack a avec les arguments*/
 	ft_init_stack(&a, argv + 1);
 	/*3. Trier */
-	ft_merge(&a, &b);
+	// ft_merge(&a, &b);
 	// ft_init_div(&a, &b);
 	// ft_descending_sort(&b);
+	ft_push_swap(&a, &b);
 	printf("\n");
 	/*4. Renvoyer les commandes */
 	while (a)
@@ -56,3 +45,15 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+
+/*void	ft_merge(t_stack **a, t_stack **b)
+{
+	ft_init_div(a, b);
+	ft_descending_sort(b);
+	ft_ascending_sort(a);
+	if ((ft_a_sorted(*a) == 1 && ft_b_sorted(*b) == 1))
+	{
+		while (*b)
+			ft_make_pa(b, a);
+	}
+}*/

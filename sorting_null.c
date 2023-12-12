@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:53:55 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/12 13:49:10 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:37:53 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,14 @@ void	ft_descending_sort(t_stack **b)
 
 	while (!ft_b_sorted(*b))
 	{
-		if (ft_stack_size(*b) == 2 || ft_stack_size(*b) == 3)
-			ft_sort_two_three(b);
 		last = ft_find_last(*b);
 		if ((*b)->content < (*b)->next->content)
 			ft_make_sb(*b);
-		else if (last->content > (*b)->content)
-			ft_make_rrb(b);
 		else
-			ft_make_rb(b);
-		ft_make_rb(b);
+		{
+			while (last->content > (*b)->content)
+				ft_make_rrb(b);
+		}
 	}
 }
 

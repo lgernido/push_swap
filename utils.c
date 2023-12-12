@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:27:27 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/11 08:42:03 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:06:33 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,6 @@ long	ft_atol(char *nptr)
 	}
 	return (nb * sign);
 }
-void	ft_stack_clear(t_stack **a)
-{
-	t_stack	*curr;
-	t_stack	*next;
-
-	if (a == NULL)
-		return ;
-	curr = *a;
-	while (curr)
-	{
-		next = curr->next;
-		free(curr);
-		curr = next;
-	}
-	*a = NULL;
-}
 
 t_stack	*ft_find_small(t_stack *a)
 {
@@ -73,6 +57,25 @@ t_stack	*ft_find_small(t_stack *a)
 		a = a->next;
 	}
 	return (smallest_node);
+}
+t_stack	*ft_find_big(t_stack *a)
+{
+	int		biggest_content;
+	t_stack	*biggest_node;
+
+	if (!a)
+		return (NULL);
+	biggest_content = INT_MIN;
+	while (a)
+	{
+		if (a->content > biggest_content)
+		{
+			biggest_content = a->content;
+			biggest_node = a;
+		}
+		a = a->next;
+	}
+	return (biggest_node);
 }
 int	ft_stack_size(t_stack *a)
 {
@@ -98,23 +101,4 @@ t_stack	*ft_find_last(t_stack *a)
 	while (a->next)
 		a = a->next;
 	return (a);
-}
-t_stack	*ft_find_big(t_stack *a)
-{
-	int biggest_content;
-	t_stack *biggest_node;
-
-	if (!a)
-		return (NULL);
-	biggest_content = INT_MIN;
-	while (a)
-	{
-		if (a->content > biggest_content)
-		{
-			biggest_content = a->content;
-			biggest_node = a;
-		}
-		a = a->next;
-	}
-	return (biggest_node);
 }

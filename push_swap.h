@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/11 11:21:26 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/12 11:59:39 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ t_stack				*ft_find_big(t_stack *a);
 
 /*Algorithme de tri*/
 
-int					ft_a_sorted(t_stack *a);
 int					ft_b_sorted(t_stack *a);
 void				ft_init_div(t_stack **a, t_stack **b);
 void				ft_descending_sort(t_stack **b);

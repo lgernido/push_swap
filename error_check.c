@@ -6,11 +6,28 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:39:15 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/04 10:10:38 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:06:15 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_stack_clear(t_stack **a)
+{
+	t_stack	*curr;
+	t_stack	*next;
+
+	if (a == NULL)
+		return ;
+	curr = *a;
+	while (curr)
+	{
+		next = curr->next;
+		free(curr);
+		curr = next;
+	}
+	*a = NULL;
+}
 
 int	ft_error_double(t_stack *a, int nb)
 {

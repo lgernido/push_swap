@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/11 11:21:40 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:46:36 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	main(int argc, char **argv)
 	ft_init_stack(&a, argv + 1);
 	/*3. Trier */
 	// ft_merge(&a, &b);
-	// ft_init_div(&a, &b);
-	// ft_descending_sort(&b);
+	// ft_descending_sort(&a);
 	ft_push_swap(&a, &b);
 	printf("\n");
 	/*4. Renvoyer les commandes */

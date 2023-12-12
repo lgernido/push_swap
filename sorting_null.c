@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:53:55 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/11 11:43:51 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:49:10 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_descending_sort(t_stack **b)
 
 	while (!ft_b_sorted(*b))
 	{
+		if (ft_stack_size(*b) == 2 || ft_stack_size(*b) == 3)
+			ft_sort_two_three(b);
 		last = ft_find_last(*b);
 		if ((*b)->content < (*b)->next->content)
 			ft_make_sb(*b);
@@ -27,56 +29,10 @@ void	ft_descending_sort(t_stack **b)
 			ft_make_rrb(b);
 		else
 			ft_make_rb(b);
+		ft_make_rb(b);
 	}
 }
 
-/*Sur la stack a, directement trier dans l'ordre croissant*/
-
-void	ft_ascending_sort(t_stack **a)
-{
-	t_stack	*last;
-
-	while (!ft_a_sorted(*a))
-	{
-		last = ft_find_last(*a);
-		if ((*a)->content > (*a)->next->content)
-			ft_make_sa(*a);
-		else if (last->content < (*a)->content)
-			ft_make_ra(a);
-		else
-			ft_make_rra(a);
-	}
-}
-
-/*int	ft_a_sorted(t_stack *a)
-{
-	if (!a)
-		return (0);
-	while (a->next != NULL)
-	{
-		if (a->content > a->next->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
-
-int	ft_b_sorted(t_stack *b)
-{
-	int		pivot;
-	t_stack	*last;
-	t_stack	*last;
-
-	if (!b)
-		return (0);
-	while (b->next != NULL)
-	{
-		if (b->content < b->next->content)
-			return (0);
-		b = b->next;
-	}
-	return (1);
-}*/
 /*Diviser la stack a en mettant toutes les valeurs plus petites que pivot dans b*/
 /*void	ft_init_div(t_stack **a, t_stack **b)
 {

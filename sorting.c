@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:20:42 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/11 11:48:42 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:50:01 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,16 @@ void	ft_push_swap(t_stack **a, t_stack **b)
 					ft_make_rb(b);
 			}
 			ft_descending_sort(b);
-			while (ft_stack_size(*b) != 0)
-			{
-				if ((*b)->content > (*a)->content)
-					ft_make_ra(a);
-				ft_make_pa(a, b);
-			}
 		}
 	}
 }
+
+/*while	(ft_stack_size(*b) != 0)
+{
+	if ((*b)->content < (*a)->content)
+		ft_make_pa(a, b);
+	ft_make_ra(a);
+}
+}
+}
+}*/

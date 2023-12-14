@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:27:27 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/12 14:06:33 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/14 18:41:24 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,8 @@ t_stack	*ft_find_big(t_stack *a)
 int	ft_stack_size(t_stack *a)
 {
 	int	size;
-	int	i;
 
 	size = 0;
-	i = 0;
 	if (!a)
 		return (0);
 	while (a)

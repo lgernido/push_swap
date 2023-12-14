@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:20:42 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/14 15:19:22 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/14 18:42:02 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	ft_prepare_push(t_stack **a, t_stack **b)
 }
 void	ft_push_swap(t_stack **a, t_stack **b)
 {
-	t_stack	*smallest;
+	/*t_stack	*smallest;
 
-	smallest = ft_find_small(*a);
+	smallest = ft_find_small(*a);*/
 	while (ft_stack_size(*b) < 2)
 		ft_make_pb(a, b);
 	while (ft_stack_size(*a) > 3)

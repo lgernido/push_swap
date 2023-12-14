@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/14 09:23:00 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/14 10:31:04 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void				ft_init_nodes(t_stack **a, t_stack **b);
 
 int					ft_a_sorted(t_stack *a);
 void				ft_sort_three(t_stack **a);
+void				ft_prepare_push(t_stack **a, t_stack **b);
 void				ft_push_swap(t_stack **a, t_stack **b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:53:20 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/14 10:42:02 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:55:55 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,36 @@
 
 void	ft_pos_init(t_stack **stack)
 {
-	int	pos;
+	int		i;
+	t_stack	*current;
 
-	pos = 0;
-	while (*stack)
+	i = 0;
+	current = *stack;
+	while (current != NULL)
 	{
-		(*stack)->pos = pos;
-		(*stack) = (*stack)->next;
+		current->pos = i;
+		current = current->next;
+		i++;
 	}
 }
 void	ft_find_target(t_stack **a, t_stack **b)
 {
 	t_stack	*target;
+	t_stack	*current;
 
 	target = *a;
-	while ((*a)->next != NULL)
+	current = *a;
+	while (current != NULL)
 	{
-		if ((*b)->content < (*a)->content && (*a)->content < target->content)
-			target = *a;
-		else if (ft_find_big(*b)->content > ft_find_big(*a)->content)
+		if (current->content < target->content
+			&& current->content > (*b)->content)
+			target = current;
+		else if ((*b)->content > ft_find_big(*a)->content)
 		{
 			(*b)->target = ft_find_small(*a);
-			break ;
+			return ;
 		}
-		(*a) = (*a)->next;
+		current = current->next;
 	}
 	(*b)->target = target;
 }

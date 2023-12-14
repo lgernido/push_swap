@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:20:42 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/14 10:35:01 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/14 11:35:05 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,21 @@ void	ft_push_swap(t_stack **a, t_stack **b)
 	while (ft_stack_size(*a) > 3)
 		ft_make_pb(a, b);
 	ft_sort_three(a);
-	while (!ft_a_sorted(*a))
+	ft_pos_init(a);
+	ft_pos_init(b);
+	ft_find_target(a, b);
+	/*ft_init_nodes(a, b);
+	if (b == NULL)
 	{
-		ft_init_nodes(a, b);
-		if (*b == NULL)
+		while (smallest->previous != NULL)
 		{
-			while (smallest->previous != NULL)
-			{
-				if (smallest->high_median == true)
-					ft_make_ra(a);
-				else
-					ft_make_rra(a);
-			}
+			if (smallest->high_median == true)
+				ft_make_ra(a);
+			else
+				ft_make_rra(a);
 		}
-		ft_prepare_push(a, b);
-		ft_make_pa(b, a);
 	}
+	ft_prepare_push(a, b);
+	ft_make_pa(b, a);
+	*/
 }

@@ -10,7 +10,7 @@ INCLUDE		= push_swap.h
 #### SOURCES
 
 SRC_FILES = push_swap.c ft_init_stack.c utils.c error_check.c swap.c \
-push.c rotate.c reverse_rotate.c sorting.c sorting_null.c
+push.c rotate.c reverse_rotate.c sorting.c 
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 ###########################################################################

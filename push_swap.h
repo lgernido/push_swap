@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/12 11:59:39 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/14 09:23:00 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include <limits.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -22,6 +23,11 @@
 typedef struct s_stack
 {
 	int				content;
+	int				pos;
+	int				push_price;
+	bool			cheapest;
+	bool			high_median;
+	struct s_stack	*target;
 	struct s_stack	*previous;
 	struct s_stack	*next;
 }					t_stack;
@@ -69,14 +75,19 @@ t_stack				*ft_find_last(t_stack *a);
 int					ft_stack_size(t_stack *a);
 t_stack				*ft_find_big(t_stack *a);
 
+/*Initialisation des elements de chaque node*/
+
+void				ft_find_push_price(t_stack **b);
+void				ft_pos_init(t_stack **stack);
+void				ft_find_target(t_stack **a, t_stack **b);
+void				ft_find_cheapest(t_stack **b);
+void				ft_init_median(t_stack **stack);
+void				ft_init_nodes(t_stack **a, t_stack **b);
+
 /*Algorithme de tri*/
 
-int					ft_b_sorted(t_stack *a);
-void				ft_init_div(t_stack **a, t_stack **b);
-void				ft_descending_sort(t_stack **b);
-void				ft_ascending_sort(t_stack **a);
-void				ft_merge(t_stack **a, t_stack **b);
-void				ft_sort_two_three(t_stack **a);
+int					ft_a_sorted(t_stack *a);
+void				ft_sort_three(t_stack **a);
 void				ft_push_swap(t_stack **a, t_stack **b);
 
 #endif

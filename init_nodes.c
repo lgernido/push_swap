@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:53:20 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/15 08:49:20 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:35:23 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,45 +29,58 @@ void	ft_pos_init(t_stack **stack)
 void	ft_find_target(t_stack **a, t_stack **b)
 {
 	t_stack	*current;
+	t_stack	*current_b;
 	t_stack	*target;
+	int		best_match;
 
-	target = *a;
-	current = *a;
-	while (current != NULL)
+	current_b = *b;
+	while (current_b != NULL)
 	{
-		if (current->content < target->content
-			&& current->content > (*b)->content)
-			target = current;
-		else if ((*b)->content > ft_find_big(*a)->content)
+		best_match = INT_MAX;
+		current = *a;
+		while (current != NULL)
 		{
-			(*b)->target = ft_find_small(*a);
-			return ;
+			if (current->content < best_match
+				&& current->content > current_b->content)
+			{
+				target = current;
+				best_match = current->content;
+			}
+			current = current->next;
 		}
-		current = current->next;
+		if (best_match == INT_MAX)
+			(current_b)->target = ft_find_small(*a);
+		else
+			(current_b)->target = target;
+		(current_b) = (current_b)->next;
 	}
-	(*b)->target = target;
 }
 
 void	ft_find_push_price(t_stack **b)
 {
-	int	push_price;
+	int		push_price;
+	t_stack	*current;
 
 	push_price = 0;
-	while (*b)
+	current = *b;
+	while (current != NULL)
 	{
-		(*b)->push_price = (*b)->pos + (*b)->target->pos;
-		(*b) = (*b)->next;
+		current->push_price = current->pos + current->target->pos;
+		current = current->next;
 	}
 }
 void	ft_find_cheapest(t_stack **b)
 {
-	while (*b)
+	t_stack	*current;
+
+	current = *b;
+	while (current != NULL)
 	{
-		if ((*b)->push_price < (*b)->next->push_price)
-			(*b)->cheapest = true;
+		if (current->push_price < current->next->push_price)
+			current->cheapest = true;
 		else
-			(*b)->cheapest = false;
-		(*b) = (*b)->next;
+			current->cheapest = false;
+		current = current->next;
 	}
 }
 

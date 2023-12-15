@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:20:42 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/15 10:22:46 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/15 12:31:22 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	ft_push_swap(t_stack **a, t_stack **b)
 	ft_pos_init(a);
 	ft_pos_init(b);
 	ft_find_target(a, b);
+	ft_find_push_price(b);
 	/*ft_init_nodes(a, b);
 	if (b == NULL)
 	{

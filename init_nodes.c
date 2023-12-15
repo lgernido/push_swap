@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_nodes.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:53:20 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/14 18:42:17 by luciegernid      ###   ########.fr       */
+/*   Updated: 2023/12/15 08:49:20 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,8 @@ void	ft_pos_init(t_stack **stack)
 }
 void	ft_find_target(t_stack **a, t_stack **b)
 {
-	t_stack	*current_a;
-	t_stack	*target;
-	long			best_match_index;
-
-	while (b)
-	{
-		best_match_index = LONG_MAX;
-		current_a = *a;
-		while (current_a)
-		{
-			if (current_a->content > (*b)->content
-				&& current_a->content < best_match_index)
-			{
-				best_match_index = current_a->content;
-				target = current_a;
-			}
-			current_a = current_a->next;
-		}
-		if (LONG_MAX == best_match_index)
-			(*b)->target = find_smallest(a);
-		else
-			(*b)->target = target;
-		b = (*b)->next;
-	}
-	/*t_stack	*target;
 	t_stack	*current;
+	t_stack	*target;
 
 	target = *a;
 	current = *a;
@@ -69,7 +45,7 @@ void	ft_find_target(t_stack **a, t_stack **b)
 		}
 		current = current->next;
 	}
-	(*b)->target = target;*/
+	(*b)->target = target;
 }
 
 void	ft_find_push_price(t_stack **b)

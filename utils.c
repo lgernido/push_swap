@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:27:27 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/14 18:41:24 by luciegernid      ###   ########.fr       */
+/*   Updated: 2023/12/15 08:46:19 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_stack	*ft_find_small(t_stack *a)
 	int		smallest_content;
 	t_stack	*smallest_node;
 
+	smallest_node = NULL;
 	if (!a)
 		return (NULL);
 	smallest_content = INT_MAX;
@@ -63,6 +64,7 @@ t_stack	*ft_find_big(t_stack *a)
 	int		biggest_content;
 	t_stack	*biggest_node;
 
+	biggest_node = NULL;
 	if (!a)
 		return (NULL);
 	biggest_content = INT_MIN;

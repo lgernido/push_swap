@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:20:42 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/16 12:05:57 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/16 12:35:02 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_prepare_push(t_stack **a, t_stack **b)
 {
 	while ((*b)->cheapest == false)
 		(*b) = (*b)->next;
-	while ((*b)->pos != 0 && (*b)->target->pos != 0)
+	while ((*b)->pos != 0 && (*a) != (*b)->target)
 	{
 		if ((*b)->pos == 0 && (*b)->target->pos != 0)
 		{
@@ -83,6 +83,7 @@ void	ft_prepare_push(t_stack **a, t_stack **b)
 			ft_prepare_push_sequel(a, b, (*b));
 	}
 }
+
 void	ft_push_swap(t_stack **a, t_stack **b)
 {
 	t_stack	*smallest;
@@ -93,8 +94,13 @@ void	ft_push_swap(t_stack **a, t_stack **b)
 	while (ft_stack_size(*a) > 3)
 		ft_make_pb(a, b);
 	ft_sort_three(a);
-	ft_init_nodes(a, b);
-	if (b == NULL)
+	while ((*b) != NULL)
+	{
+		ft_init_nodes(a, b);
+		ft_prepare_push(a, b);
+		ft_make_pa(b, a);
+	}
+	if ((*b) == NULL)
 	{
 		while (smallest->previous != NULL)
 		{
@@ -104,7 +110,4 @@ void	ft_push_swap(t_stack **a, t_stack **b)
 				ft_make_rra(a);
 		}
 	}
-	ft_prepare_push(a, b);
-	ft_make_pa(b, a);
-	ft_init_nodes(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/14 10:31:04 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:06:28 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,10 @@ t_stack				*ft_find_big(t_stack *a);
 
 /*Initialisation des elements de chaque node*/
 
-void				ft_find_push_price(t_stack **b);
+void				ft_find_push_price(t_stack **a, t_stack **b);
 void				ft_pos_init(t_stack **stack);
 void				ft_find_target(t_stack **a, t_stack **b);
 void				ft_find_cheapest(t_stack **b);
-void				ft_init_median(t_stack **stack);
 void				ft_init_nodes(t_stack **a, t_stack **b);
 
 /*Algorithme de tri*/

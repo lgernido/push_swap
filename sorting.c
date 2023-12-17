@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:20:42 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/16 12:35:02 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/17 11:05:34 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_prepare_push(t_stack **a, t_stack **b)
 {
 	while ((*b)->cheapest == false)
 		(*b) = (*b)->next;
-	while ((*b)->pos != 0 && (*a) != (*b)->target)
+	while ((*a) != (*b)->target)
 	{
 		if ((*b)->pos == 0 && (*b)->target->pos != 0)
 		{

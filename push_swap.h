@@ -6,14 +6,13 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/16 09:06:28 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:14:22 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -74,6 +73,8 @@ t_stack				*ft_find_small(t_stack *a);
 t_stack				*ft_find_last(t_stack *a);
 int					ft_stack_size(t_stack *a);
 t_stack				*ft_find_big(t_stack *a);
+char				**ft_split(char const *s, char c);
+size_t				ft_strlen(const char *str);
 
 /*Initialisation des elements de chaque node*/
 
@@ -89,5 +90,7 @@ int					ft_a_sorted(t_stack *a);
 void				ft_sort_three(t_stack **a);
 void				ft_prepare_push(t_stack **a, t_stack **b);
 void				ft_push_swap(t_stack **a, t_stack **b);
+void				ft_move_b(t_stack **b, t_stack *cheapest, int rounds);
+void				ft_move_a(t_stack **a, t_stack *cheapest, int rounds);
 
 #endif

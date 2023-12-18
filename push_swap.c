@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/16 10:05:49 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:11:16 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,11 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	/*1. Verifier que les arguments sont valides*/
 	if (argc == 1)
 		ft_error_found(&a);
-	/*else if (argc == 2)
-		argv = ft_split(argv[1], ' ');*/
-	/*2. Initialiser la stack a avec les arguments*/
+	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
 	ft_init_stack(&a, argv + 1);
-	/*3. Trier */
 	if (!ft_a_sorted(a))
 	{
 		if (ft_stack_size(a) == 2)
@@ -38,7 +35,6 @@ int	main(int argc, char **argv)
 			ft_push_swap(&a, &b);
 	}
 	printf("\n");
-	/*4. Renvoyer les commandes */
 	while (a)
 	{
 		printf("%d    %d    %d\n", a->content, a->pos, a->high_median);

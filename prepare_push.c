@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:55:46 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/18 15:14:16 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:28:14 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,4 @@ void	ft_prepare_push(t_stack **a, t_stack **b)
 		}
 		else
 			ft_prepare_push_sequel(a, b, (*b));
-}
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/18 15:11:16 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:14:34 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ int	main(int argc, char **argv)
 		b = b->next;
 	}
 	printf("\n");
+	ft_stack_clear(&a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:39:15 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/12 14:06:15 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:28:15 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,14 @@ void	ft_error_found(t_stack **a)
 	ft_stack_clear(a);
 	write(2, "Error\n", 6);
 	exit(1);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

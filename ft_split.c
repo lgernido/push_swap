@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 08:17:11 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 08:58:41 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 13:41:22 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ static char	*get_next_word(char *s, char c)
 {
 	static int	cursor = 0;
 	char		*next_word;
-	int			len;
+	int			size;
 	int			i;
 
-	len = 0;
+	size = 0;
 	i = 0;
 	while (s[cursor] == c)
 		++cursor;
-	while ((s[cursor + len] != c) && s[cursor + len])
-		++len;
-	next_word = malloc((size_t)len * sizeof(char) + 1);
+	while ((s[cursor + size] != c) && s[cursor + size])
+		++size;
+	next_word = malloc((size_t)size * sizeof(char) + 1);
 	if (!next_word)
 		return (NULL);
 	while ((s[cursor] != c) && s[cursor])
@@ -61,27 +61,28 @@ static char	*get_next_word(char *s, char c)
 char	**ft_split(char *s, char c)
 {
 	int		words_count;
-	char	**result_array;
+	char	**res;
 	int		i;
 
 	i = 0;
 	words_count = count_words(s, c);
 	if (!words_count)
 		exit(1);
-	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
-	return (NULL);
+	res = malloc(sizeof(char *) * (size_t)(words_count + 2));
+	if (!res)
+		return (NULL);
 	while (words_count-- >= 0)
 	{
 		if (i == 0)
 		{
-			result_array[i] = malloc(sizeof(char));
-			if (!result_array[i])
+			res[i] = malloc(sizeof(char));
+			if (!res[i])
 				return (NULL);
-			result_array[i++][0] = '\0';
+			res[i++][0] = '\0';
 			continue ;
 		}
-		result_array[i++] = get_next_word(s, c);
+		res[i++] = get_next_word(s, c);
 	}
-	result_array[i] = NULL;
-	return (result_array);
+	res[i] = NULL;
+	return (res);
 }

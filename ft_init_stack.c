@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:19:25 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/06 11:51:26 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 13:16:15 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	ft_init_stack(t_stack **a, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		/**Verifier qu'il n'y a pas d'erreur*/
 		if (ft_error_syntax(argv[i]))
 			ft_error_found(a);
 		nb = ft_atol(argv[i]);
@@ -53,7 +52,6 @@ void	ft_init_stack(t_stack **a, char **argv)
 			ft_error_found(a);
 		if (ft_error_double(*a, (int)nb))
 			ft_error_found(a);
-		/*Initialisation de la stack a*/
 		ft_add_stack(a, (int)nb);
 		i++;
 	}

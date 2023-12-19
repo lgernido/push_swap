@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 12:09:10 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 13:07:52 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ t_stack				*ft_find_last(t_stack *a);
 int					ft_stack_size(t_stack *a);
 t_stack				*ft_find_big(t_stack *a);
 char				**ft_split(char *s, char c);
-size_t				ft_strlen(const char *str);
 
 /*Initialisation des elements de chaque node*/
 

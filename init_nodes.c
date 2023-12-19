@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:53:20 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 11:54:54 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:53:39 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_pos_init(t_stack *stack)
 		else
 			stack->high_median = false;
 		stack = stack->next;
-		++i;
+		i++;
 	}
 }
 

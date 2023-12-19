@@ -6,7 +6,7 @@
 /*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 18:59:17 by luciegernid      ###   ########.fr       */
+/*   Updated: 2023/12/19 19:02:07 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static void process_arguments(int argc, char **argv, t_stack **a, t_stack **b)
 {
-	bool split;;
+	bool split;
 
 	*a = NULL;
 	*b = NULL;
 	split = false;
 
 	if (argc == 1)
-		ft_error_found(a);
+		exit(1);
 	else if (argc == 2) 
 	{
 		argv = ft_split(argv[1], ' ');

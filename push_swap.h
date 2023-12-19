@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 13:07:52 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:47:37 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void				ft_init_stack(t_stack **a, char **argv);
 int					ft_error_double(t_stack *a, int nb);
 int					ft_error_syntax(char *argv);
 void				ft_error_found(t_stack **a);
+void				ft_stack_clear(t_stack **a);
 
 /*Instructions*/
 
@@ -68,12 +69,12 @@ void				ft_make_rrr(t_stack **a, t_stack **b);
 /*Utilitaires*/
 
 long				ft_atol(char *nptr);
-void				ft_stack_clear(t_stack **a);
+int					ft_stack_size(t_stack *a);
+void				free_split(char **split_array);
+char				**ft_split(char *s, char c);
+t_stack				*ft_find_big(t_stack *a);
 t_stack				*ft_find_small(t_stack *a);
 t_stack				*ft_find_last(t_stack *a);
-int					ft_stack_size(t_stack *a);
-t_stack				*ft_find_big(t_stack *a);
-char				**ft_split(char *s, char c);
 
 /*Initialisation des elements de chaque node*/
 
@@ -86,8 +87,8 @@ void				ft_init_nodes_b(t_stack *a, t_stack *b);
 
 int					ft_a_sorted(t_stack *a);
 void				ft_sort_three(t_stack **a);
-void				ft_push_swap(t_stack **a, t_stack **b);
 t_stack				*ft_get_cheapest(t_stack *stack);
 void				ft_prepare_push(t_stack **stack, t_stack *cheapest,
 						char stack_name);
+void				ft_push_swap(t_stack **a, t_stack **b);
 #endif

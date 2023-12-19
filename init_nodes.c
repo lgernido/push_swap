@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:53:20 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 12:53:39 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 14:47:46 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,18 +85,16 @@ void	ft_find_cheapest(t_stack *stack)
 {
 	int		cheapest_value;
 	t_stack	*cheapest_node;
-	t_stack	*current;
 
-	current = stack;
 	cheapest_value = INT_MAX;
-	while (current != NULL)
+	while (stack != NULL)
 	{
-		if (current->push_price < cheapest_value)
+		if (stack->push_price < cheapest_value)
 		{
-			cheapest_value = current->push_price;
-			cheapest_node = current;
+			cheapest_value = stack->push_price;
+			cheapest_node = stack;
 		}
-		current = current->next;
+		stack = stack->next;
 	}
 	cheapest_node->cheapest = true;
 }

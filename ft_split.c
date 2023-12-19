@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 08:17:11 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 13:41:22 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:47:25 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,18 @@
 
 static int	count_words(char *s, char c)
 {
-	int		count;
-	bool	inside_word;
+	int	i;
+	int	words;
 
-	count = 0;
-	while (*s)
+	i = 0;
+	words = 0;
+	while (s[i] != 0)
 	{
-		inside_word = false;
-		while (*s == c)
-			++s;
-		while (*s != c && *s)
-		{
-			if (!inside_word)
-			{
-				++count;
-				inside_word = true;
-			}
-			++s;
-		}
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			words++;
+		i++;
 	}
-	return (count);
+	return (words);
 }
 
 static char	*get_next_word(char *s, char c)
@@ -46,9 +38,9 @@ static char	*get_next_word(char *s, char c)
 	size = 0;
 	i = 0;
 	while (s[cursor] == c)
-		++cursor;
+		cursor++;
 	while ((s[cursor + size] != c) && s[cursor + size])
-		++size;
+		size++;
 	next_word = malloc((size_t)size * sizeof(char) + 1);
 	if (!next_word)
 		return (NULL);
@@ -56,6 +48,18 @@ static char	*get_next_word(char *s, char c)
 		next_word[i++] = s[cursor++];
 	next_word[i] = '\0';
 	return (next_word);
+}
+void	free_split(char **split_array)
+{
+	int	i;
+
+	i = 0;
+	while (split_array[i] != NULL)
+	{
+		free(split_array[i]);
+		i++;
+	}
+	free(split_array);
 }
 
 char	**ft_split(char *s, char c)

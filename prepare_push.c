@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:55:46 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 12:09:34 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 14:51:31 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ t_stack	*ft_get_cheapest(t_stack *stack)
 		return (NULL);
 	while (stack)
 	{
-		if (stack->cheapest)
+		if (stack->cheapest == true)
 			return (stack);
-		stack = stack->next;
+		else
+			stack = stack->next;
 	}
 	return (NULL);
 }

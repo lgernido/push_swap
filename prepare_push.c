@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:55:46 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 14:51:31 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:05:13 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@ t_stack	*ft_get_cheapest(t_stack *stack)
 			stack = stack->next;
 	}
 	return (NULL);
+}
+
+void	ft_small_top(t_stack **a)
+{
+	while ((*a)->content != ft_find_small(*a)->content)
+	{
+		if (ft_find_small(*a)->high_median)
+			ft_make_ra(a);
+		else
+			ft_make_rra(a);
+	}
 }
 
 void	ft_prepare_push(t_stack **stack, t_stack *cheapest, char stack_name)

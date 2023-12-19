@@ -6,11 +6,17 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 09:39:35 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 12:29:12 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:08:37 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_merge(t_stack **a, t_stack **b)
+{
+	ft_prepare_push(a, (*b)->target, 'a');
+	ft_make_pa(b, a);
+}
 
 static void	ft_find_target_b(t_stack *a, t_stack *b)
 {

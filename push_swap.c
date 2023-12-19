@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 15:49:58 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:20:52 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;

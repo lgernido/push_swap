@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 15:47:37 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:14:45 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ char				**ft_split(char *s, char c);
 t_stack				*ft_find_big(t_stack *a);
 t_stack				*ft_find_small(t_stack *a);
 t_stack				*ft_find_last(t_stack *a);
+void				ft_small_top(t_stack **a);
 
 /*Initialisation des elements de chaque node*/
 
@@ -88,6 +89,7 @@ void				ft_init_nodes_b(t_stack *a, t_stack *b);
 int					ft_a_sorted(t_stack *a);
 void				ft_sort_three(t_stack **a);
 t_stack				*ft_get_cheapest(t_stack *stack);
+void				ft_merge(t_stack **a, t_stack **b);
 void				ft_prepare_push(t_stack **stack, t_stack *cheapest,
 						char stack_name);
 void				ft_push_swap(t_stack **a, t_stack **b);

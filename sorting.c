@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:20:42 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 14:50:23 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:14:30 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,6 @@ static void	ft_divide(t_stack **a, t_stack **b)
 	ft_prepare_push(a, cheapest_node, 'a');
 	ft_prepare_push(b, cheapest_node->target, 'b');
 	ft_make_pb(a, b);
-}
-
-static void	ft_merge(t_stack **a, t_stack **b)
-{
-	ft_prepare_push(a, (*b)->target, 'a');
-	ft_make_pa(b, a);
-}
-
-static void	ft_small_top(t_stack **a)
-{
-	while ((*a)->content != ft_find_small(*a)->content)
-	{
-		if (ft_find_small(*a)->high_median)
-			ft_make_ra(a);
-		else
-			ft_make_rra(a);
-	}
 }
 
 void	ft_push_swap(t_stack **a, t_stack **b)

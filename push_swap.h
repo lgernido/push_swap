@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/18 15:14:22 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:09:10 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,22 @@ t_stack				*ft_find_small(t_stack *a);
 t_stack				*ft_find_last(t_stack *a);
 int					ft_stack_size(t_stack *a);
 t_stack				*ft_find_big(t_stack *a);
-char				**ft_split(char const *s, char c);
+char				**ft_split(char *s, char c);
 size_t				ft_strlen(const char *str);
 
 /*Initialisation des elements de chaque node*/
 
-void				ft_find_push_price(t_stack **a, t_stack **b);
-void				ft_pos_init(t_stack **stack);
-void				ft_find_target(t_stack **a, t_stack **b);
-void				ft_find_cheapest(t_stack **b);
-void				ft_init_nodes(t_stack **a, t_stack **b);
+void				ft_pos_init(t_stack *stack);
+void				ft_find_cheapest(t_stack *stack);
+void				ft_init_nodes_a(t_stack *a, t_stack *b);
+void				ft_init_nodes_b(t_stack *a, t_stack *b);
 
 /*Algorithme de tri*/
 
 int					ft_a_sorted(t_stack *a);
 void				ft_sort_three(t_stack **a);
-void				ft_prepare_push(t_stack **a, t_stack **b);
 void				ft_push_swap(t_stack **a, t_stack **b);
-void				ft_move_b(t_stack **b, t_stack *cheapest, int rounds);
-void				ft_move_a(t_stack **a, t_stack *cheapest, int rounds);
-
+t_stack				*ft_get_cheapest(t_stack *stack);
+void				ft_prepare_push(t_stack **stack, t_stack *cheapest,
+						char stack_name);
 #endif

@@ -6,103 +6,82 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 08:17:11 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/18 15:13:23 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 08:58:41 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	count_words(char const *s, char c)
+static int	count_words(char *s, char c)
 {
-	int	i;
-	int	words;
+	int		count;
+	bool	inside_word;
 
-	i = 0;
-	words = 0;
-	while (s[i] != 0)
+	count = 0;
+	while (*s)
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-			words++;
-		i++;
+		inside_word = false;
+		while (*s == c)
+			++s;
+		while (*s != c && *s)
+		{
+			if (!inside_word)
+			{
+				++count;
+				inside_word = true;
+			}
+			++s;
+		}
 	}
-	return (words);
+	return (count);
 }
 
-static size_t	word_size(char const *s, char c)
+static char	*get_next_word(char *s, char c)
 {
-	int	i;
-	int	len;
+	static int	cursor = 0;
+	char		*next_word;
+	int			len;
+	int			i;
 
-	i = 0;
 	len = 0;
-	while (s[i] && s[i] != c)
-	{
-		i++;
-		len++;
-	}
-	return (len);
-}
-
-static void	ft_protection(char **tab)
-{
-	int	i;
-
 	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-
-static char	*ft_strndup(const char *s, size_t n)
-{
-	char	*dup;
-	size_t	i;
-	size_t	size;
-
-	size = ft_strlen(s);
-	if (size > n)
-		dup = malloc(sizeof(char) * (n + 1));
-	else
-		dup = malloc(sizeof(char) * (size + 1));
-	if (dup == 0)
+	while (s[cursor] == c)
+		++cursor;
+	while ((s[cursor + len] != c) && s[cursor + len])
+		++len;
+	next_word = malloc((size_t)len * sizeof(char) + 1);
+	if (!next_word)
 		return (NULL);
-	i = 0;
-	while (s[i] && i < n)
-	{
-		dup[i] = s[i];
-		i++;
-	}
-	dup[i] = 0;
-	return (dup);
+	while ((s[cursor] != c) && s[cursor])
+		next_word[i++] = s[cursor++];
+	next_word[i] = '\0';
+	return (next_word);
 }
-char	**ft_split(char const *s, char c)
+
+char	**ft_split(char *s, char c)
 {
+	int		words_count;
+	char	**result_array;
 	int		i;
-	size_t	size;
-	int		words;
-	char	**res;
 
-	if (!s)
-		return (NULL);
-	words = count_words(s, c);
 	i = 0;
-	res = malloc(sizeof(char *) * (words + 1));
-	if (!res)
-		return (NULL);
-	while (i < words)
+	words_count = count_words(s, c);
+	if (!words_count)
+		exit(1);
+	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
+	return (NULL);
+	while (words_count-- >= 0)
 	{
-		while (*s && *s == c)
-			s++;
-		size = word_size(s, c);
-		res[i] = ft_strndup(s, size);
-		if (!res[i])
-			ft_protection(res);
-		s += size;
-		i++;
+		if (i == 0)
+		{
+			result_array[i] = malloc(sizeof(char));
+			if (!result_array[i])
+				return (NULL);
+			result_array[i++][0] = '\0';
+			continue ;
+		}
+		result_array[i++] = get_next_word(s, c);
 	}
-	res[i] = NULL;
-	return (res);
+	result_array[i] = NULL;
+	return (result_array);
 }

@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:39:15 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/18 16:28:15 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:50:21 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	ft_error_double(t_stack *a, int nb)
 	}
 	return (0);
 }
+
 int	ft_error_syntax(char *argv)
 {
 	if (argv[0] == '-' && argv[1] == '-')
@@ -59,7 +60,7 @@ void	ft_error_found(t_stack **a)
 
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])

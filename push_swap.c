@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/18 16:14:34 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 11:35:23 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,6 @@ int	main(int argc, char **argv)
 		else
 			ft_push_swap(&a, &b);
 	}
-	printf("\n");
-	while (a)
-	{
-		printf("%d    %d    %d\n", a->content, a->pos, a->high_median);
-		a = a->next;
-	}
-	printf("\n");
-	while (b)
-	{
-		printf("%d    %d     %d    %d    %d    %d\n", b->content, b->pos,
-			b->target->content, b->push_price, b->cheapest, b->high_median);
-		b = b->next;
-	}
-	printf("\n");
 	ft_stack_clear(&a);
 	return (0);
 }

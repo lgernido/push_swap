@@ -6,62 +6,80 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:20:42 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/18 16:08:51 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:18:39 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_a_sorted(t_stack *a)
+static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	if (!a)
-		return (0);
-	while (a->next != NULL)
-	{
-		if (a->content > a->next->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
+	while (*b != cheapest_node->target && *a != cheapest_node)
+		ft_make_rr(a, b);
+	ft_pos_init(*a);
+	ft_pos_init(*b);
 }
 
-void	ft_sort_three(t_stack **a)
+static void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	t_stack	*biggest;
+	while (*b != cheapest_node->target && *a != cheapest_node)
+		ft_make_rrr(a, b);
+	ft_pos_init(*a);
+	ft_pos_init(*b);
+}
 
-	biggest = ft_find_big(*a);
-	if (*a == biggest)
-		ft_make_ra(a);
-	else if ((*a)->next == biggest)
-		ft_make_rra(a);
-	if ((*a)->content > (*a)->next->content)
-		ft_make_sa(*a);
+static void	ft_divide(t_stack **a, t_stack **b)
+{
+	t_stack	*cheapest_node;
+
+	cheapest_node = ft_get_cheapest(*a);
+	if (cheapest_node->high_median && cheapest_node->target->high_median)
+		rotate_both(a, b, cheapest_node);
+	else if (!(cheapest_node->high_median)
+		&& !(cheapest_node->target->high_median))
+		rev_rotate_both(a, b, cheapest_node);
+	ft_prepare_push(a, cheapest_node, 'a');
+	ft_prepare_push(b, cheapest_node->target, 'b');
+	ft_make_pb(a, b);
+}
+
+static void	ft_merge(t_stack **a, t_stack **b)
+{
+	ft_prepare_push(a, (*b)->target, 'a');
+	ft_make_pa(b, a);
+}
+
+static void	ft_small_top(t_stack **a)
+{
+	while ((*a)->content != ft_find_small(*a)->content)
+	{
+		if (ft_find_small(*a)->high_median)
+			ft_make_ra(a);
+		else
+			ft_make_rra(a);
+	}
 }
 
 void	ft_push_swap(t_stack **a, t_stack **b)
 {
-	t_stack	*smallest;
+	int	size_a;
 
-	while (ft_stack_size(*b) < 2)
+	size_a = ft_stack_size(*a);
+	if (size_a-- > 3 && !ft_a_sorted(*a))
 		ft_make_pb(a, b);
-	while (ft_stack_size(*a) > 3)
+	if (size_a-- > 3 && !ft_a_sorted(*a))
 		ft_make_pb(a, b);
+	while (size_a-- > 3 && !ft_a_sorted(*a))
+	{
+		ft_init_nodes_a(*a, *b);
+		ft_divide(a, b);
+	}
 	ft_sort_three(a);
-	while ((*b) != NULL)
+	while (*b)
 	{
-		ft_init_nodes(a, b);
-		ft_prepare_push(a, b);
-		ft_make_pa(b, a);
+		ft_init_nodes_b(*a, *b);
+		ft_merge(a, b);
+		ft_pos_init(*a);
 	}
-	smallest = ft_find_small(*a);
-	if ((*b) == NULL)
-	{
-		while (smallest->previous != NULL)
-		{
-			if (smallest->high_median == true)
-				ft_make_ra(a);
-			else
-				ft_make_rra(a);
-		}
-	}
+	ft_small_top(a);
 }

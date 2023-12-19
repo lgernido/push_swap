@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 08:17:11 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 15:47:25 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:30:11 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static char	*get_next_word(char *s, char c)
 	next_word[i] = '\0';
 	return (next_word);
 }
+
 void	free_split(char **split_array)
 {
 	int	i;

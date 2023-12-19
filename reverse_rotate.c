@@ -6,13 +6,11 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 08:03:19 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/09 08:31:05 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:28:59 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*EFfectue une rotation sur la stack, le dernier element devient premier*/
 
 void	ft_reverse_rotate(t_stack **stack)
 {
@@ -29,6 +27,7 @@ void	ft_reverse_rotate(t_stack **stack)
 	*stack = last;
 	last->next->previous = last;
 }
+
 void	ft_make_rra(t_stack **a)
 {
 	ft_reverse_rotate(a);

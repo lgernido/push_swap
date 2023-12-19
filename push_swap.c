@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 15:48:15 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:49:58 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
 	ft_init_stack(&a, argv + 1);
-	free_split(argv);
 	if (!ft_a_sorted(a))
 	{
 		if (ft_stack_size(a) == 2)
@@ -34,6 +33,7 @@ int	main(int argc, char **argv)
 		else
 			ft_push_swap(&a, &b);
 	}
+	free_split(argv);
 	ft_stack_clear(&a);
 	return (0);
 }

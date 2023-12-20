@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 08:03:19 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 16:28:59 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:44:49 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ void	ft_reverse_rotate(t_stack **stack)
 	int		size;
 
 	size = ft_stack_size(*stack);
-	if (size == 1 || size == 0 || !stack)
+	if (!*stack || size <= 1)
 		return ;
 	last = ft_find_last(*stack);
+	if (!last)
+		return ;
 	last->previous->next = NULL;
 	last->next = *stack;
 	last->previous = NULL;

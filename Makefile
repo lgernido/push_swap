@@ -34,4 +34,12 @@ fclean : clean
 
 re : fclean ${NAME}
 
+ARG			= $(filter-out $@,$(MAKECMDGOALS))
+
+test:		$(NAME)
+			$(eval ARG = $(shell shuf -i 0-5000 -n $(ARG)))
+			valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
+			@echo -n "Instructions: "
+			@./push_swap $(ARG) | wc -l
+
 .PHONY : bonus all clean fclean re

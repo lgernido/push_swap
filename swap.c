@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:10:17 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 16:29:31 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:55:56 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	ft_swap(t_stack *stack)
 	tmp = stack->content;
 	stack->content = stack->next->content;
 	stack->next->content = tmp;
-	stack->next->previous = NULL;
-	stack->previous = stack->next;
 }
 
 void	ft_make_sa(t_stack *a)

@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 08:39:15 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 15:11:36 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/20 11:01:27 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	ft_error_double(t_stack *a, int nb)
 
 int	ft_error_syntax(char *argv)
 {
-	if (argv[0] == '-' && argv[1] == '-')
+	if ((argv[0] == '-' || argv[0] == '+') && (argv[1] == '-'
+			|| argv[1] == '+'))
 		return (1);
 	if (!(*argv == '+' || *argv == '-' || (*argv >= '0' && *argv <= '9')))
 		return (1);

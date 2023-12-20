@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
+/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:40:03 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 19:02:07 by luciegernid      ###   ########.fr       */
+/*   Updated: 2023/12/20 09:48:10 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void process_arguments(int argc, char **argv, t_stack **a, t_stack **b)
+static void	process_arguments(int argc, char **argv, t_stack **a, t_stack **b)
 {
-	bool split;
+	bool	split;
 
 	*a = NULL;
 	*b = NULL;
 	split = false;
-
-	if (argc == 1)
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		exit(1);
-	else if (argc == 2) 
+	else if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
 		split = true;
@@ -32,9 +31,9 @@ static void process_arguments(int argc, char **argv, t_stack **a, t_stack **b)
 		free_split(argv);
 }
 
-static void execute_sorting(t_stack *a, t_stack *b)
+static void	execute_sorting(t_stack *a, t_stack *b)
 {
-	if (!ft_a_sorted(a)) 
+	if (!ft_a_sorted(a))
 	{
 		if (ft_stack_size(a) == 2)
 			ft_make_sa(a);
@@ -46,10 +45,10 @@ static void execute_sorting(t_stack *a, t_stack *b)
 	ft_stack_clear(&a);
 }
 
-int main(int argc, char **argv) 
+int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 
 	process_arguments(argc, argv, &a, &b);
 	execute_sorting(a, b);

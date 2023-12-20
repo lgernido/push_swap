@@ -6,7 +6,7 @@
 /*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:19:25 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/19 13:16:15 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/20 09:15:20 by lgernido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_add_stack(t_stack **a, int content)
 		last->next = new;
 		new->previous = last;
 	}
+	new->cheapest = false;
 }
 
 void	ft_init_stack(t_stack **a, char **argv)

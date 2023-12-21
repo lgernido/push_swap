@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 08:03:19 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/20 15:44:49 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:04:02 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

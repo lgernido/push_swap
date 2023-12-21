@@ -1,4 +1,13 @@
 ###########################################################################
+#### SOURCES
+
+SRC_FILES = push_swap.c ft_init_stack.c utils.c error_check.c swap.c \
+push.c rotate.c reverse_rotate.c sorting.c init_nodes.c prepare_push.c \
+ft_split.c init_nodes_b.c
+
+OBJ_FILES = $(SRC_FILES:.c=.o)
+
+###########################################################################
 #### ARGUMENTS
 
 NAME		= push_swap
@@ -16,14 +25,6 @@ CYAN=\033[0;36m
 WHITE=\033[0;37m
 RESET=\033[0m
 
-###########################################################################
-#### SOURCES
-
-SRC_FILES = push_swap.c ft_init_stack.c utils.c error_check.c swap.c \
-push.c rotate.c reverse_rotate.c sorting.c init_nodes.c prepare_push.c \
-ft_split.c init_nodes_b.c
-
-OBJ_FILES = $(SRC_FILES:.c=.o)
 ###########################################################################
 #### RULES
 

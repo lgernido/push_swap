@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:19:25 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/20 09:15:20 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:26:43 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+size_t	ft_strlen(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 void	ft_add_stack(t_stack **a, int content)
 {
@@ -46,6 +56,8 @@ void	ft_init_stack(t_stack **a, char **argv)
 	i = 0;
 	while (argv[i])
 	{
+		if (ft_strlen(argv[i]) > 11)
+			ft_error_found(a);
 		if (ft_error_syntax(argv[i]))
 			ft_error_found(a);
 		nb = ft_atol(argv[i]);

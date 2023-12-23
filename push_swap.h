@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgernido <lgernido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciegernidos <luciegernidos@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:39:56 by lgernido          #+#    #+#             */
-/*   Updated: 2023/12/20 08:53:25 by lgernido         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:29:58 by luciegernid      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ t_stack				*ft_find_big(t_stack *a);
 t_stack				*ft_find_small(t_stack *a);
 t_stack				*ft_find_last(t_stack *a);
 void				ft_small_top(t_stack **a);
+size_t				ft_strlen(char *str);
 
 /*Initialisation des elements de chaque node*/
 

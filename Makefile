@@ -51,8 +51,8 @@ fclean : clean
 re : fclean ${NAME}
 
 test :		$(NAME)
-			$(eval ARG = $(shell shuf -i 0-5000 -n $(ARG)))
-			./push_swap $(ARG) | ./checker_linux $(ARG)
+			$(eval ARG = $(shell gshuf -i 0-5000 -n $(ARG)))
+			./push_swap $(ARG) | ./checker_Mac $(ARG)
 			@echo -n "$(BLUE)Instructions: "
 			@./push_swap $(ARG) | wc -l
 
